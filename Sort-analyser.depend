@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1586372699 source:d:\ushoba\sorts\sort-analyser\main.cpp
+	<iostream>
+	"ArraySaver.h"
+
+1586374065 d:\ushoba\sorts\sort-analyser\include\arraysaver.h
+	<vector>
+
+1586374102 source:d:\ushoba\sorts\sort-analyser\src\arraysaver.cpp
+	"ArraySaver.h"
+
