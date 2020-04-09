@@ -35,8 +35,11 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/ArraySaver.h" />
+		<Unit filename="include/TypeSaver.h" />
+		<Unit filename="libraries.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ArraySaver.cpp" />
+		<Unit filename="src/TypeSaver.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
