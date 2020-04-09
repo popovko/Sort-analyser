@@ -1,5 +1,8 @@
-#include <iostream>
+#include "TypeSaver.h"
 #include "ArraySaver.h"
+#include <iostream>
+#include<vector>
+#include<string>
 
 using namespace std;
 
@@ -14,13 +17,7 @@ int main()
     data.push_back(vec1);
     data.push_back(vec2);
 
-    for(vector<int> v : data){
-        for(int n : v){
-            cout<<n<<' ';
-        }
-        cout<<endl;
-    }
-
     ArraySaver as = ArraySaver(5, data);
+    as.outArrays();
     return 0;
 }

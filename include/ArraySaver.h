@@ -6,12 +6,16 @@ const int COUNT_ARRAYS = 5;
 
 class ArraySaver
 {
-    public:
-        int size;
-        std::vector<std::vector<int>> data;
+private:
+    int size;
+    std::vector<std::vector<int>> arrays;
+public:
+    ArraySaver(int size, std::vector<std::vector<int>> arrays);
+    virtual ~ArraySaver();
 
-        ArraySaver(int size, std::vector<std::vector<int>> data);
-        virtual ~ArraySaver();
+    int getSize();
+    std::vector<std::vector<int>> getArrays();
+    void outArrays();
 };
 
 #endif // ARRAYSAVER_H
