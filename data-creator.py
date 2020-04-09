@@ -36,11 +36,11 @@ def out2dArray(data):
 
 def writeArrays(distribution, start, end, sizes):
     f = open(FILE_NAME, "a")
-    f.write(distribution + ' ' + str(start) + ' ' + str(end) + "\n")
+    f.write('$' + distribution + ' ' + str(start) + ' ' + str(end) + "\n")
     f.close()
     for size in sizes:
         f = open(FILE_NAME, "a")
-        f.write("Size = " + str(size) + "\n")
+        f.write("#Size = " + str(size) + "\n")
         f.close()
         out2dArray(
             MAP_DISTRIBUTION[distribution](
@@ -55,11 +55,11 @@ def writeArrays(distribution, start, end, sizes):
 
 def writeArraysWithDifferentLimits(distribution, start, ends, sizes):
     f = open(FILE_NAME, "a")
-    f.write(distribution + ' 0 N-1' + "\n")
+    f.write('$' + distribution + ' 0 N-1' + "\n")
     f.close()
     for i in range(len(sizes)):
         f = open(FILE_NAME, "a")
-        f.write("Size = " + str(sizes[i]) + "\n")
+        f.write("#Size = " + str(sizes[i]) + "\n")
         f.close()
         out2dArray(
             MAP_DISTRIBUTION[distribution](
@@ -82,7 +82,9 @@ def fillInputFile():
     writeArrays(UNIFORM_DISTRIBUTION, 0, 100, sizes)
     writeArraysWithDifferentLimits(UNIFORM_DISTRIBUTION, 0, ends, sizes)
     writeArrays(NORMAL_DISTRIBUTION, 0, 100, sizes)
-
+    f = open(FILE_NAME, "a")
+    f.write("END")
+    f.close()
 
 fillInputFile()
     
