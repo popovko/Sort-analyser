@@ -36,11 +36,11 @@ def out2dArray(data):
 
 def writeArrays(distribution, start, end, sizes):
     f = open(FILE_NAME, "a")
-    f.write('$' + distribution + ' ' + str(start) + ' ' + str(end) + "\n")
+    f.write(distribution + ' FROM ' + str(start) + ' TO ' + str(end) + "\n")
     f.close()
     for size in sizes:
         f = open(FILE_NAME, "a")
-        f.write("#Size = " + str(size) + "\n")
+        f.write(str(size) + "\n")
         f.close()
         out2dArray(
             MAP_DISTRIBUTION[distribution](
@@ -55,11 +55,11 @@ def writeArrays(distribution, start, end, sizes):
 
 def writeArraysWithDifferentLimits(distribution, start, ends, sizes):
     f = open(FILE_NAME, "a")
-    f.write('$' + distribution + ' 0 N-1' + "\n")
+    f.write(distribution + 'FROM 0 TO N-1' + "\n")
     f.close()
     for i in range(len(sizes)):
         f = open(FILE_NAME, "a")
-        f.write("#Size = " + str(sizes[i]) + "\n")
+        f.write(str(sizes[i]) + "\n")
         f.close()
         out2dArray(
             MAP_DISTRIBUTION[distribution](
@@ -74,7 +74,7 @@ def writeArraysWithDifferentLimits(distribution, start, ends, sizes):
 
 def fillInputFile():
     f = open(FILE_NAME, "a")
-    f.write("COUNT_ARRAYS = " + str(COUNT_ARRAYS) + "\n")
+    f.write(str(COUNT_ARRAYS) + "\n")
     f.close()
     sizes = np.array([3*10, 10*5, 3*10*3, 10*6])
     ends = sizes - 1
