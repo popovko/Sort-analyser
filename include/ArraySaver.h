@@ -2,19 +2,19 @@
 #define ARRAYSAVER_H
 #include<vector>
 
-const int COUNT_ARRAYS = 5;
+using namespace std;
 
 class ArraySaver
 {
 private:
     int size;
-    std::vector<std::vector<int>> arrays;
+    vector<vector<int>> arrays;
 public:
-    ArraySaver(int size, std::vector<std::vector<int>> arrays);
+    ArraySaver(int size, vector<vector<int>> arrays);
     virtual ~ArraySaver();
 
     int getSize();
-    std::vector<std::vector<int>> getArrays();
+    vector<vector<int>> getArrays();
     void outArrays();
 };
 

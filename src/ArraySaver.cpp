@@ -18,19 +18,19 @@ int ArraySaver::getSize()
     return size;
 }
 
-std::vector<std::vector<int>> ArraySaver::getArrays()
+vector<vector<int>> ArraySaver::getArrays()
 {
     return arrays;
 }
 
 void ArraySaver::outArrays()
 {
-    std::cout<<"Size = "<<size<<std::endl;
-    for(std::vector<int> vec : arrays){
+    cout<<"Size = "<<size<<endl;
+    for(vector<int> vec : arrays){
         for(int n : vec){
-            std::cout<<n<<' ';
+            cout<<n<<' ';
         }
-        std::cout<<std::endl;
+        cout<<endl;
     }
-    std::cout<<std::endl;
+    cout<<endl;
 }

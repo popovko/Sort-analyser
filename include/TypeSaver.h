@@ -4,16 +4,18 @@
 #include<vector>
 #include"ArraySaver.h"
 
+using namespace std;
+
 class TypeSaver
 {
 private:
-    std::string type_name;
-    std::vector<ArraySaver> data;
+    string type_name;
+    vector<ArraySaver> data;
 public:
-    TypeSaver(std::string type_name, std::vector<ArraySaver> data);
+    TypeSaver(string type_name, vector<ArraySaver> data);
     virtual ~TypeSaver();
-    std::string getTypeName();
-    std::vector<ArraySaver> getData();
+    string getTypeName();
+    vector<ArraySaver> getData();
 
     void outData();
 };

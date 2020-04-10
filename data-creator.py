@@ -36,7 +36,7 @@ def out2dArray(data):
 
 def writeArrays(distribution, start, end, sizes):
     f = open(FILE_NAME, "a")
-    f.write(distribution + ' FROM ' + str(start) + ' TO ' + str(end) + "\n")
+    f.write(distribution + '-FROM-' + str(start) + '-TO-' + str(end) + "\n")
     f.close()
     for size in sizes:
         f = open(FILE_NAME, "a")
@@ -55,7 +55,7 @@ def writeArrays(distribution, start, end, sizes):
 
 def writeArraysWithDifferentLimits(distribution, start, ends, sizes):
     f = open(FILE_NAME, "a")
-    f.write(distribution + 'FROM 0 TO N-1' + "\n")
+    f.write(distribution + 'FROM-0-TO-N-1' + "\n")
     f.close()
     for i in range(len(sizes)):
         f = open(FILE_NAME, "a")
