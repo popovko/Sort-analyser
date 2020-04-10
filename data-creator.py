@@ -73,9 +73,6 @@ def writeArraysWithDifferentLimits(distribution, start, ends, sizes):
         f.close()
 
 def fillInputFile():
-    f = open(FILE_NAME, "a")
-    f.write(str(COUNT_ARRAYS) + "\n")
-    f.close()
     sizes = np.array([3*10, 10*5, 3*10*3, 10*6])
     ends = sizes - 1
     writeArrays(UNIFORM_DISTRIBUTION, 0, 100, sizes)
