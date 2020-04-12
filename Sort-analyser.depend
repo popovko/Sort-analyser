@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1586646097 source:d:\ushoba\sorts\sort-analyser\main.cpp
+1586707755 source:d:\ushoba\sorts\sort-analyser\main.cpp
 	"TypeSaver.h"
 	"ArraySaver.h"
 	"DataReader.h"
+	"LeonardoNumber.h"
 	"sorts.h"
 	<iostream>
 	<algorithm>
@@ -39,11 +40,20 @@
 	<algorithm>
 	<cmath>
 
-1586644027 source:d:\ushoba\sorts\sort-analyser\sorts.cpp
+1586707667 source:d:\ushoba\sorts\sort-analyser\sorts.cpp
 	<algorithm>
 	<iostream>
 	<cmath>
 	"sorts.h"
+	"LeonardoNumber.h"
 
-1586643975 d:\ushoba\sorts\sort-analyser\sorts.h
+1586707694 d:\ushoba\sorts\sort-analyser\sorts.h
+
+1586693386 d:\ushoba\sorts\sort-analyser\leonardo.h
+	<iterator>
+
+1586700684 source:d:\ushoba\sorts\sort-analyser\src\leonardonumber.cpp
+	"LeonardoNumber.h"
+
+1586706254 d:\ushoba\sorts\sort-analyser\include\leonardonumber.h
 

@@ -2,8 +2,9 @@
 #include<iostream>
 #include<cmath>
 #include"sorts.h"
+#include"LeonardoNumber.h"
 
-#define MAX 2000000
+#define MAX 4000000
 
 #define IS_EMPTY(e) (e<0)
 #define NONE -1
@@ -167,6 +168,7 @@ void countingSort(int *arr, int n)
 			k++;
 		}
 	}
+	//delete counting;
 }
 //END COUNTING SORT
 
@@ -227,7 +229,7 @@ int searchFree(int e, int sorted[], int last)
     return last;
 }
 
-void libSort(int A[], int N, int S[], int EPSILON)
+void libSort(int * arr, int N, int S[], int EPSILON)
 {
     if(N==0)
         return;
@@ -238,7 +240,7 @@ void libSort(int A[], int N, int S[], int EPSILON)
     int goal = 1;
     //How many elements have already been inserted, its 1 for efficiency
     int pos = 1;
-    S[0] = A[0];//We insert element 0 at position 0
+    S[0] = arr[0];//We insert element 0 at position 0
     //Initial size of array S
     int sLen = max((1+EPSILON), goal + 1);
     // ------ CONDITION -------
@@ -250,7 +252,7 @@ void libSort(int A[], int N, int S[], int EPSILON)
         for(j = 0;j < goal;j++)
         {
             //Search where to insert A[pos] (with binary search)
-            int insPos = searchFree(A[pos], S, sLen-1);
+            int insPos = searchFree(arr[pos], S, sLen-1);
             //Because our binary search returns us the location of an smaller item than the one we search...
             insPos ++;
             if(!IS_EMPTY(S[insPos]))
@@ -304,7 +306,7 @@ void libSort(int A[], int N, int S[], int EPSILON)
                 }
                 //Now nextFree is insPos; in other words insPos is free
             }
-            S[insPos] = A[pos++];//We insert the element and increment our counter
+            S[insPos] = arr[pos++];//We insert the element and increment our counter
 
             if(pos >= N)
                 return;//That element was the last, return from the function
@@ -330,7 +332,7 @@ void libSort(int A[], int N, int S[], int EPSILON)
     }
 }
 
-void librarySort(int A[], int n)
+void librarySort(int * arr, int n)
 {
     int epsilon = 1;
     int *S = new int[MAX];
@@ -338,11 +340,200 @@ void librarySort(int A[], int n)
     //This takes linear time
     prepareLibrarySort(epsilon, n, S, &sLen);
     //O (n log n)
-    libSort(A, n, S, epsilon);
+    libSort(arr, n, S, epsilon);
     //This takes linear time
     for(i = 0, j = 0; i < sLen && j < n; i++)
         if(!IS_EMPTY(S[i]))
-            A[j++] = S[i];
+            arr[j++] = S[i];
     delete S;
 }
 
+//SMOOTH SORT
+void smoothsort (int * arr, int _n)
+
+   /**
+    **  Sorts the given array in ascending order.
+    **
+    **    Usage: smoothsort (<array>, <size>)
+    **
+    **    Where: <array> pointer to the first element of the array in question.
+    **            <size> length of the array to be sorted.
+    **
+    **
+    **/
+{
+    if (!(arr && _n))
+        return;
+
+    unsigned long long p = 1;
+    LeonardoNumber b;
+
+    for (unsigned q = 0; ++q < _n ; ++p)
+        if (p % 8 == 3)
+        {
+            sift (arr, q - 1, b);
+            ++++b;
+            p >>= 2;
+        }
+        else if (p % 4 == 1)
+        {
+            if (q + ~b < _n)
+                sift (arr, q - 1, b);
+            else
+                trinkle (arr, q - 1, p, b);
+
+            for (p <<= 1; --b > 1; p <<= 1);
+        }
+        trinkle (arr, _n - 1, p, b);
+
+        for (--p; _n-- > 1; --p)
+            if (b == 1)
+                for ( ; !(p % 2); p >>= 1)
+                    ++b;
+
+        else if (b >= 3)
+        {
+            if (p)
+                semitrinkle (arr, _n - b.gap (), p, b);
+
+            --b;
+            p <<= 1;
+            ++p;
+
+            semitrinkle (arr, _n - 1, p, b);
+            --b; p <<= 1; ++p;
+        }
+
+      return;
+}
+inline void sift (int * arr, unsigned _r, LeonardoNumber _b) throw ()
+
+       /**
+        **  Sifts up the root of the stretch in question.
+        **
+        **    Usage: sift (<array>, <root>, <number>)
+        **
+        **    Where:     <array> Pointer to the first element of the array in
+        **                       question.
+        **                <root> Index of the root of the array in question.
+        **              <number> Current Leonardo number.
+        **
+        **
+        **/
+{
+    unsigned r2;
+
+    while (_b >= 3)
+    {
+        if (arr [_r - _b.gap ()] >= arr [_r - 1])
+            r2 = _r - _b.gap ();
+        else
+        {
+            r2 = _r - 1;
+            --_b;
+        }
+
+        if (arr [_r] >= arr [r2])
+            break;
+        else
+        {
+            swap(arr [_r], arr [r2]); _r = r2; --_b;
+        }
+    }
+
+    return;
+}
+
+
+inline void semitrinkle (
+    int * arr,
+    unsigned _r,
+    unsigned long long _p,
+    LeonardoNumber _b
+) throw ()
+
+       /**
+        **  Trinkles the roots of the stretches of a given array and root when the
+        **  adjacent stretches are trusty.
+        **
+        **    Usage: semitrinkle (<array>, <root>, <standard_concat>, <number>)
+        **
+        **    Where:           <array> Pointer to the first element of the array in
+        **                             question.
+        **                      <root> Index of the root of the array in question.
+        **           <standard_concat> Standard concatenation's codification.
+        **                    <number> Current Leonardo number.
+        **
+        **
+        **/
+{
+    if (arr [_r - ~_b] >= arr [_r])
+    {
+        swap(arr [_r], arr [_r - ~_b]);
+        trinkle (arr, _r - ~_b, _p, _b);
+    }
+
+    return;
+}
+
+
+inline void trinkle (
+    int * arr,
+    unsigned _r,
+    unsigned long long _p,
+    LeonardoNumber _b
+) throw ()
+
+       /**
+        **  Trinkles the roots of the stretches of a given array and root.
+        **
+        **    Usage: trinkle (<array>, <root>, <standard_concat>, <number>)
+        **
+        **    Where:           <array> Pointer to the first element of the array in
+        **                             question.
+        **                      <root> Index of the root of the array in question.
+        **           <standard_concat> Standard concatenation's codification.
+        **                    <number> Current Leonardo number.
+        **
+        **
+        **/
+{
+    while (_p)
+    {
+        for ( ; !(_p % 2); _p >>= 1)
+            ++_b;
+
+        if (!--_p || (arr [_r] >= arr [_r - _b]))
+            break;
+        else if (_b == 1)
+        {
+            swap(arr [_r], arr [_r - _b]); _r -= _b;
+        }
+
+        else if (_b >= 3)
+        {
+            unsigned r2 = _r - _b.gap (), r3 = _r - _b;
+            if (arr [_r - 1] >= arr [r2])
+            {
+                r2 = _r - 1;
+                _p <<= 1;
+                --_b;
+            }
+            if (arr [r3] >= arr [r2])
+            {
+                swap(arr [_r], arr [r3]);
+                _r = r3;
+            }
+            else
+            {
+                swap(arr [_r], arr [r2]);
+                _r = r2; --_b;
+                break;
+            }
+        }
+    }
+    sift(arr, _r, _b);
+
+    return;
+}
+//END SMOOTH SORT
