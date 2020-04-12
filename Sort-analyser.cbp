@@ -39,6 +39,8 @@
 		<Unit filename="include/TypeSaver.h" />
 		<Unit filename="libraries.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="sorts.cpp" />
+		<Unit filename="sorts.h" />
 		<Unit filename="src/ArraySaver.cpp" />
 		<Unit filename="src/DataReader.cpp" />
 		<Unit filename="src/TypeSaver.cpp" />

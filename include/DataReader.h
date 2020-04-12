@@ -18,10 +18,11 @@ public:
     DataReader(string file_path);
     virtual ~DataReader();
 
-    void read_all_data();
-    TypeSaver read_next_type(ifstream & file);
-    ArraySaver read_next_arrays(ifstream & file);
-    void out_all_data();
+    void readAllData();
+    TypeSaver readNextType(ifstream & file);
+    ArraySaver readNextArrays(ifstream & file);
+    void outAllData();
+    vector<TypeSaver> getAllData();
 };
 
 #endif // DATAREADER_H

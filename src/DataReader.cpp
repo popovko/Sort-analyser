@@ -15,21 +15,26 @@ DataReader::~DataReader()
     //dtor
 }
 
-void DataReader::read_all_data()
+vector<TypeSaver> DataReader::getAllData()
+{
+    return all_data;
+}
+
+void DataReader::readAllData()
 {
     vector<TypeSaver> data;
     ifstream file;
     file.open(file_path, ios_base::in);
     for(int i = 0; i < COUNT_TYPES; i++)
     {
-        data.push_back(read_next_type(file));
+        data.push_back(readNextType(file));
     }
     file.close();
 
     this -> all_data = data;
 }
 
-TypeSaver DataReader::read_next_type(ifstream & file)
+TypeSaver DataReader::readNextType(ifstream & file)
 {
     if(file.is_open())
     {
@@ -38,14 +43,14 @@ TypeSaver DataReader::read_next_type(ifstream & file)
         vector<ArraySaver> all_arrays_of_type;
         for(int i = 0; i < COUNT_SIZES; i++)
         {
-            all_arrays_of_type.push_back(read_next_arrays(file));
+            all_arrays_of_type.push_back(readNextArrays(file));
         }
 
         return TypeSaver(type_name, all_arrays_of_type);
     }
 }
 
-ArraySaver DataReader::read_next_arrays(ifstream & file)
+ArraySaver DataReader::readNextArrays(ifstream & file)
 {
     if(file.is_open())
     {
@@ -68,7 +73,7 @@ ArraySaver DataReader::read_next_arrays(ifstream & file)
         return ArraySaver(size, arrays);
     }
 }
-void DataReader::out_all_data()
+void DataReader::outAllData()
 {
     if(!all_data.empty()){
         for(TypeSaver ts : all_data)
@@ -87,6 +92,10 @@ void DataReader::out_all_data()
                 }
             }
         }
+    }
+    else
+    {
+        cout<<"Data is empty";
     }
 }
 

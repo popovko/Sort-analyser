@@ -19,7 +19,7 @@ def createNormalDistribution(start, end, data_size):
         X = np.random.normal((start + end)/2, (start + end)/5, data_size)
         X = X.round().astype(int)
         result[i] = X
-    return result
+    return np.abs(result)
 
 MAP_DISTRIBUTION = {
     UNIFORM_DISTRIBUTION : createUniformDistribution,

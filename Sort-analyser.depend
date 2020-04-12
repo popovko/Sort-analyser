@@ -1,9 +1,11 @@
 # depslib dependency file v1.0
-1586532603 source:d:\ushoba\sorts\sort-analyser\main.cpp
+1586646097 source:d:\ushoba\sorts\sort-analyser\main.cpp
 	"TypeSaver.h"
 	"ArraySaver.h"
 	"DataReader.h"
+	"sorts.h"
 	<iostream>
+	<algorithm>
 	<vector>
 	<string>
 
@@ -19,17 +21,29 @@
 	<vector>
 	"ArraySaver.h"
 
-1586522411 source:d:\ushoba\sorts\sort-analyser\src\typesaver.cpp
+1586532685 source:d:\ushoba\sorts\sort-analyser\src\typesaver.cpp
 	<iostream>
 	"TypeSaver.h"
 
-1586532617 source:d:\ushoba\sorts\sort-analyser\src\datareader.cpp
+1586535971 source:d:\ushoba\sorts\sort-analyser\src\datareader.cpp
 	"DataReader.h"
 
-1586532588 d:\ushoba\sorts\sort-analyser\include\datareader.h
+1586535854 d:\ushoba\sorts\sort-analyser\include\datareader.h
 	<string>
 	<vector>
 	<iostream>
 	<fstream>
 	"TypeSaver.h"
+
+1586534781 d:\ushoba\sorts\sort-analyser\sorts.cpp
+	<algorithm>
+	<cmath>
+
+1586644027 source:d:\ushoba\sorts\sort-analyser\sorts.cpp
+	<algorithm>
+	<iostream>
+	<cmath>
+	"sorts.h"
+
+1586643975 d:\ushoba\sorts\sort-analyser\sorts.h
 
