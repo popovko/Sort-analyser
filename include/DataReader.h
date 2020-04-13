@@ -6,6 +6,10 @@
 #include<fstream>
 #include"TypeSaver.h"
 
+const int COUNT_COPY = 5;
+const int COUNT_SIZES = 4;
+const int COUNT_TYPES = 4;
+
 using namespace std;
 
 class DataReader

@@ -12,11 +12,12 @@ private:
     string type_name;
     vector<ArraySaver> data;
 public:
+
     TypeSaver(string type_name, vector<ArraySaver> data);
     virtual ~TypeSaver();
+
     string getTypeName();
     vector<ArraySaver> getData();
-
     void outData();
 };
 

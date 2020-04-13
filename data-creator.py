@@ -16,7 +16,7 @@ def createUniformDistribution(start, end, data_size):
 def createNormalDistribution(start, end, data_size):
     result = np.zeros((COUNT_ARRAYS, data_size))
     for i in range(COUNT_ARRAYS):
-        X = np.random.normal((start + end)/2, (start + end)/5, data_size)
+        X = np.random.normal((start + end)/2, 10, data_size)
         X = X.round().astype(int)
         result[i] = X
     return np.abs(result)
@@ -73,12 +73,12 @@ def writeArraysWithDifferentLimits(distribution, start, ends, sizes):
         f.close()
 
 def fillInputFile():
-    sizes = np.array([3*10, 10*5, 3*10*3, 10*6])
+    sizes = np.array([30000, 100000, 300000, 1000000])
     ends = sizes - 1
-    writeArrays(UNIFORM_DISTRIBUTION, 0, 100, sizes)
-    writeArrays(UNIFORM_DISTRIBUTION, 0, 100, sizes)
+    writeArrays(UNIFORM_DISTRIBUTION, 0, 2**31, sizes)
     writeArraysWithDifferentLimits(UNIFORM_DISTRIBUTION, 0, ends, sizes)
-    writeArrays(NORMAL_DISTRIBUTION, 0, 100, sizes)
+    writeArrays(UNIFORM_DISTRIBUTION, 0, 2**15, sizes)
+    writeArrays(NORMAL_DISTRIBUTION, 0, 2**31, sizes)
     f = open(FILE_NAME, "a")
     f.write("END")
     f.close()

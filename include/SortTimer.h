@@ -18,6 +18,7 @@ private:
 public:
     SortTimer(vector<TypeSaver> allData);
     virtual ~SortTimer();
+
     void outTimeEverySort(string outPath);
 };
 

@@ -1,9 +1,5 @@
 #include "DataReader.h"
 
-const int COUNT_COPY = 5;
-const int COUNT_SIZES = 4;
-const int COUNT_TYPES = 4;
-
 DataReader::DataReader(string file_path)
 {
     this -> file_path = file_path;

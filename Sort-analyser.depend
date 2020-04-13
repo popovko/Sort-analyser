@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1586707755 source:d:\ushoba\sorts\sort-analyser\main.cpp
+1586805444 source:d:\ushoba\sorts\sort-analyser\main.cpp
 	"TypeSaver.h"
 	"ArraySaver.h"
 	"DataReader.h"
 	"LeonardoNumber.h"
+	"SortTimer.h"
 	"sorts.h"
 	<iostream>
 	<algorithm>
@@ -17,19 +18,19 @@
 	"ArraySaver.h"
 	<iostream>
 
-1586522397 d:\ushoba\sorts\sort-analyser\include\typesaver.h
+1586806546 d:\ushoba\sorts\sort-analyser\include\typesaver.h
 	<string>
 	<vector>
 	"ArraySaver.h"
 
-1586532685 source:d:\ushoba\sorts\sort-analyser\src\typesaver.cpp
+1586803902 source:d:\ushoba\sorts\sort-analyser\src\typesaver.cpp
 	<iostream>
 	"TypeSaver.h"
 
-1586535971 source:d:\ushoba\sorts\sort-analyser\src\datareader.cpp
+1586805658 source:d:\ushoba\sorts\sort-analyser\src\datareader.cpp
 	"DataReader.h"
 
-1586535854 d:\ushoba\sorts\sort-analyser\include\datareader.h
+1586805662 d:\ushoba\sorts\sort-analyser\include\datareader.h
 	<string>
 	<vector>
 	<iostream>
@@ -40,14 +41,19 @@
 	<algorithm>
 	<cmath>
 
-1586707667 source:d:\ushoba\sorts\sort-analyser\sorts.cpp
-	<algorithm>
-	<iostream>
-	<cmath>
+1586804345 source:d:\ushoba\sorts\sort-analyser\sorts.cpp
 	"sorts.h"
-	"LeonardoNumber.h"
 
-1586707694 d:\ushoba\sorts\sort-analyser\sorts.h
+1586806639 d:\ushoba\sorts\sort-analyser\sorts.h
+	<map>
+	<algorithm>
+	<vector>
+	<string>
+	<iostream>
+	<fstream>
+	<cmath>
+	"DataReader.h"
+	"LeonardoNumber.h"
 
 1586693386 d:\ushoba\sorts\sort-analyser\leonardo.h
 	<iterator>
@@ -56,4 +62,16 @@
 	"LeonardoNumber.h"
 
 1586706254 d:\ushoba\sorts\sort-analyser\include\leonardonumber.h
+
+1586801896 source:d:\ushoba\sorts\sort-analyser\src\sorttimer.cpp
+	"SortTimer.h"
+
+1586806551 d:\ushoba\sorts\sort-analyser\include\sorttimer.h
+	"DataReader.h"
+	"../sorts.h"
+	<iostream>
+	<fstream>
+	<string>
+	<ctime>
+	<algorithm>
 

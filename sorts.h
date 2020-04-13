@@ -1,16 +1,28 @@
 #ifndef SORTS_H_INCLUDED
 #define SORTS_H_INCLUDED
 
-#define MAX 10000
-#define MAX2 20000
+#include<map>
+#include<algorithm>
+#include<vector>
+#include<string>
+#include<iostream>
+#include<fstream>
+#include<cmath>
+
+#include"DataReader.h"
+#include"LeonardoNumber.h"
+
+#define MAX 2000000
 
 #define IS_EMPTY(e) (e<0)
 #define NONE -1
+
+using namespace std;
 //INTROSORT
     void introsort(int * arr, int *begin, int *end);
 
 //COUNTING SORT
-    void countingSort(int *arr, int size);
+    void countingSort(vector<int> arr, int size);
 
 //LIBRARY SORT
     void librarySort(int * arr, int n);

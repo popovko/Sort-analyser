@@ -35,7 +35,7 @@ void SortTimer::outTimeEverySort(string outPath)
                     copy(v.begin(), v.end(), arr);
 
                     unsigned long long start_time =  clock();
-                   // librarySort(arr, n);
+                    librarySort(arr, n);
                     unsigned long long end_time =  clock();
 
                     averageTime += (end_time - start_time)/double(COUNT_COPY);
@@ -70,7 +70,7 @@ void SortTimer::outTimeEverySort(string outPath)
                     copy(v.begin(), v.end(), arr);
 
                     unsigned long long start_time =  clock();
-                   // smoothsort(arr, n);
+                    smoothsort(arr, n);
                     unsigned long long end_time =  clock();
 
                     averageTime += (end_time - start_time)/double(COUNT_COPY);
@@ -89,7 +89,7 @@ void SortTimer::outTimeEverySort(string outPath)
                     copy(v.begin(), v.end(), arr);
 
                     unsigned long long start_time =  clock();
-                    //introsort(arr, arr, arr+n-1);
+                    introsort(arr, arr, arr+n-1);
                     unsigned long long end_time =  clock();
 
                     averageTime += (end_time - start_time)/double(COUNT_COPY);
@@ -108,7 +108,7 @@ void SortTimer::outTimeEverySort(string outPath)
                     copy(v.begin(), v.end(), arr);
 
                     unsigned long long start_time =  clock();
-                    //sort(arr, arr + n);
+                    sort(arr, arr + n);
                     unsigned long long end_time =  clock();
 
                     averageTime += (end_time - start_time)/double(COUNT_COPY);
@@ -127,7 +127,7 @@ void SortTimer::outTimeEverySort(string outPath)
                     copy(v.begin(), v.end(), arr);
 
                     unsigned long long start_time =  clock();
-                   // stable_sort(arr, arr + n);
+                    stable_sort(arr, arr + n);
                     unsigned long long end_time =  clock();
 
                     averageTime += (end_time - start_time)/double(COUNT_COPY);

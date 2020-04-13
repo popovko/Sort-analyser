@@ -19,7 +19,7 @@ int main()
     DataReader dr = DataReader(file_path);
     dr.readAllData();
 
-    string out_path = "output2.txt";
+    string out_path = "output.txt";
     SortTimer st = SortTimer(dr.getAllData());
     st.outTimeEverySort(out_path);
 
