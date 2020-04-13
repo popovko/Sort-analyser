@@ -2,6 +2,7 @@
 #include "ArraySaver.h"
 #include "DataReader.h"
 #include "LeonardoNumber.h"
+#include "SortTimer.h"
 #include "sorts.h"
 #include <iostream>
 #include<algorithm>
@@ -10,41 +11,17 @@
 
 using namespace std;
 
-#define N 2000
+#define N 30000000
+#define TWO_POW_31 2147483648
 int main()
 {
     string file_path = "input.txt";
     DataReader dr = DataReader(file_path);
     dr.readAllData();
 
-    int* mas = new int[N];
-    for(int i = 0; i<N; i++){
-        mas[N-i-1] = i;
-    }
-
-    //vector<int> v = dr.getAllData().at(0).getData().at(0).getArrays().at(2);
-    //const int n = v.size();
-    //int arr[n];
-    //copy(v.begin(), v.end(), arr);
-
-    //introsort(mas, mas, mas + N);
-
-    //for(int i = 0 ;i < N; i++){
-      //  cout<<mas[i]<<" ";
-   //}
-    //cout<<endl;
-    //copy(v.begin(), v.end(), arr);
-   // countingSort(mas, N);
-    // for(int i = 0 ;i <N; i++){
-     //   cout<<mas[i]<<" ";
-    //}
-    //cout<<endl;
-   // copy(v.begin(), v.end(), arr);
-    introsort(mas,mas, mas+N-1);
-    cout<<endl;
-     for(int i = 0 ;i <N; i++){
-        cout<<mas[i]<<" ";
-    }
+    string out_path = "output2.txt";
+    SortTimer st = SortTimer(dr.getAllData());
+    st.outTimeEverySort(out_path);
 
     return 0;
 }

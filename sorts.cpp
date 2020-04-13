@@ -1,13 +1,4 @@
-#include<algorithm>
-#include<iostream>
-#include<cmath>
 #include"sorts.h"
-#include"LeonardoNumber.h"
-
-#define MAX 4000000
-
-#define IS_EMPTY(e) (e<0)
-#define NONE -1
 
 using namespace std;
 
@@ -136,39 +127,29 @@ void introsort(int arr[], int *begin, int *end)
 //END INTROSORT
 
 //COUNTING SORT
-int getMax(int arr[], int size)
+void countingSort(vector<int> arr, int n)
 {
-    int max = arr[1];
-    for(int i = 2; i<=size; i++)
+    // Map to store the frequency
+    // of the array elements
+    std::map<int, int> freqMap;
+    for (auto i = arr.begin(); i != arr.end(); i++)
     {
-        if(arr[i] > max)
-        max = arr[i];
+        freqMap[*i]++;
     }
 
-    return max; //the max element from the array
-}
-void countingSort(int *arr, int n)
-{
-    int max = getMax(arr, n);
-	int *counting = new int[max];
-	int k = 0;
+    int i = 0;
 
-	for(int i = 0; i < max; i++)
-		counting[i] = 0;
+    // For every element of the map
+    for (auto it : freqMap)
+    {
+        // Value of the element
+        int val = it.first;
 
-	for(int i = 0; i < n; i++)
-		counting[arr[i]]++;
-
-	for(int i = 0; i < max; i++)
-	{
-		int count = counting[i];
-		for(int j = 0; j < count; j++)
-		{
-			arr[k] = i;
-			k++;
-		}
-	}
-	//delete counting;
+        // Its frequency
+        int freq = it.second;
+        for (int j = 0; j < freq; j++)
+            arr[i++] = val;
+    }
 }
 //END COUNTING SORT
 
